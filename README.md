@@ -29,11 +29,21 @@ fn main() {
 Then you can use it in your application:
 
 ```typescript
-import { getMachineUid } from 'tauri-plugin-machine-uid-api';
+import { commands } from '@skipperndt/plugin-machine-uid';
 
 // Get the unique device identifier
-const uid = await getMachineUid();
-console.log(uid.uid); // e.g. "550e8400-e29b-41d4-a716-446655440000"
+const result = await commands.getMachineUid();
+if (result.status === "ok") {
+    console.log(result.data.id); // e.g. "550e8400-e29b-41d4-a716-446655440000"
+}
+```
+
+The `getMachineUid()` function returns a `Result` type with the following structure:
+
+```typescript
+type Result<T, E> = 
+    | { status: "ok"; data: { id: string | null } }
+    | { status: "error"; error: E };
 ```
 
 ## Platform Support

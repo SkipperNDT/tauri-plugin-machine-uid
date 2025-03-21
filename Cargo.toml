@@ -1,7 +1,7 @@
 [package]
 name = "tauri-plugin-machine-uid"
 version = "0.1.0"
-authors = [ "Florian Stasse <f.stasse@skipperndt.com>" ]
+authors = ["Florian Stasse <f.stasse@skipperndt.com>"]
 description = ""
 edition = "2024"
 rust-version = "1.85"
@@ -12,9 +12,14 @@ links = "tauri-plugin-machine-uid"
 tauri = { version = "2" }
 serde = "1"
 thiserror = "2"
+specta = "2.0.0-rc.22"
+tauri-specta = { version = "2.0.0-rc.21", features = ["typescript"] }
 
 [target."cfg(any(target_os = \"macos\", windows, target_os = \"linux\"))".dependencies]
 machine-uid = { version = "0.5.3" }
+
+[dev-dependencies]
+specta-typescript = "0.0.9"
 
 [build-dependencies]
 tauri-plugin = { version = "2", features = ["build"] }

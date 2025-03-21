@@ -21,6 +21,8 @@ use desktop::MachineUid;
 #[cfg(mobile)]
 use mobile::MachineUid;
 
+const PLUGIN_NAME: &str = "machine-uid";
+
 /// Extensions to [`tauri::App`], [`tauri::AppHandle`] and [`tauri::Window`] to access the machine-uid APIs.
 pub trait MachineUidExt<R: Runtime> {
     fn machine_uid(&self) -> &MachineUid<R>;
@@ -32,10 +34,19 @@ impl<R: Runtime, T: Manager<R>> crate::MachineUidExt<R> for T {
     }
 }
 
+fn builder<R: Runtime>() -> tauri_specta::Builder<R> {
+    tauri_specta::Builder::new()
+        .plugin_name(PLUGIN_NAME)
+        .commands(tauri_specta::collect_commands![
+            commands::get_machine_uid::<tauri::Wry>,
+        ])
+}
+
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
-    Builder::new("machine-uid")
-        .invoke_handler(tauri::generate_handler![commands::get_machine_uid])
+    let builder = builder();
+    Builder::new(PLUGIN_NAME)
+        .invoke_handler(builder.invoke_handler())
         .setup(|app, api| {
             #[cfg(mobile)]
             let machine_uid = mobile::init(app, api)?;
@@ -45,4 +56,22 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             Ok(())
         })
         .build()
+}
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn export_types() {
+        builder::<tauri::Wry>()
+            .export(
+                specta_typescript::Typescript::default()
+                    .bigint(specta_typescript::BigIntExportBehavior::BigInt)
+                    .formatter(specta_typescript::formatter::prettier)
+                    .header("// @ts-nocheck"),
+                "./bindings.ts",
+            )
+            .expect("failed to export specta types");
+    }
 }
