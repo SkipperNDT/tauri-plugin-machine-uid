@@ -1,6 +1,6 @@
 use tauri::{
-  plugin::{Builder, TauriPlugin},
-  Manager, Runtime,
+    Manager, Runtime,
+    plugin::{Builder, TauriPlugin},
 };
 
 pub use models::*;
@@ -23,26 +23,26 @@ use mobile::MachineUid;
 
 /// Extensions to [`tauri::App`], [`tauri::AppHandle`] and [`tauri::Window`] to access the machine-uid APIs.
 pub trait MachineUidExt<R: Runtime> {
-  fn machine_uid(&self) -> &MachineUid<R>;
+    fn machine_uid(&self) -> &MachineUid<R>;
 }
 
 impl<R: Runtime, T: Manager<R>> crate::MachineUidExt<R> for T {
-  fn machine_uid(&self) -> &MachineUid<R> {
-    self.state::<MachineUid<R>>().inner()
-  }
+    fn machine_uid(&self) -> &MachineUid<R> {
+        self.state::<MachineUid<R>>().inner()
+    }
 }
 
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
-  Builder::new("machine-uid")
-    .invoke_handler(tauri::generate_handler![commands::get_machine_uid])
-    .setup(|app, api| {
-      #[cfg(mobile)]
-      let machine_uid = mobile::init(app, api)?;
-      #[cfg(desktop)]
-      let machine_uid = desktop::init(app, api)?;
-      app.manage(machine_uid);
-      Ok(())
-    })
-    .build()
+    Builder::new("machine-uid")
+        .invoke_handler(tauri::generate_handler![commands::get_machine_uid])
+        .setup(|app, api| {
+            #[cfg(mobile)]
+            let machine_uid = mobile::init(app, api)?;
+            #[cfg(desktop)]
+            let machine_uid = desktop::init(app, api)?;
+            app.manage(machine_uid);
+            Ok(())
+        })
+        .build()
 }
