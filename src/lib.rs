@@ -26,13 +26,18 @@ const PLUGIN_NAME: &str = "machine-uid";
 /// Extensions to [`tauri::App`], [`tauri::AppHandle`] and [`tauri::Window`] to access the machine-uid APIs.
 pub trait MachineUidExt<R: Runtime> {
     fn machine_uid(&self) -> &MachineUid<R>;
+    fn try_machine_uid(&self) -> Option<&MachineUid<R>>;
 }
 
 impl<R: Runtime, T: Manager<R>> crate::MachineUidExt<R> for T {
     fn machine_uid(&self) -> &MachineUid<R> {
         self.state::<MachineUid<R>>().inner()
     }
+    fn try_machine_uid(&self) -> Option<&MachineUid<R>> {
+        self.try_state::<MachineUid<R>>().map(|s| s.inner())
+    }
 }
+
 
 fn builder<R: Runtime>() -> tauri_specta::Builder<R> {
     tauri_specta::Builder::new()
