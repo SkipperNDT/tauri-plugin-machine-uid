@@ -35,7 +35,7 @@ impl<R: Runtime, T: Manager<R>> crate::MachineUidExt<R> for T {
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
   Builder::new("machine-uid")
-    .invoke_handler(tauri::generate_handler![commands::ping])
+    .invoke_handler(tauri::generate_handler![commands::get_machine_uid])
     .setup(|app, api| {
       #[cfg(mobile)]
       let machine_uid = mobile::init(app, api)?;

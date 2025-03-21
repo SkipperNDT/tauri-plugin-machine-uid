@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "com.plugin.machine-uid"
+    namespace = "com.plugin.machine_uid"
     compileSdk = 34
 
     defaultConfig {
