@@ -10,7 +10,13 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-tauri-plugin-machine-uid = { git = "https://github.com/SkipperNDT/tauri-plugin-machine-uid" }
+tauri-plugin-machine-uid = "0.1.0"
+```
+
+Add the following typescript bindings if you want:
+
+```bash
+yarn add @skipperndt/plugin-machine-uid
 ```
 
 ## Usage
@@ -26,7 +32,7 @@ fn main() {
 }
 ```
 
-Then you can use it in your application:
+Then you can use it in your application (if you installed the typescript bindings):
 
 ```typescript
 import { commands } from '@skipperndt/plugin-machine-uid';
@@ -44,6 +50,14 @@ The `getMachineUid()` function returns a `Result` type with the following struct
 type Result<T, E> = 
     | { status: "ok"; data: { id: string | null } }
     | { status: "error"; error: E };
+```
+
+If you use Rust, import the MachineUidExt trait:
+
+```rust
+use tauri_plugin_machine_uid::MachineUidExt;
+
+let id = app_handle.machine_uid().get_machine_uid().unwrap().id.unwrap();
 ```
 
 ## Platform Support
