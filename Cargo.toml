@@ -2,11 +2,16 @@
 name = "tauri-plugin-machine-uid"
 version = "0.1.0"
 authors = ["Florian Stasse <f.stasse@skipperndt.com>"]
-description = ""
+description = "A Tauri plugin for retrieving machine UID"
+license = "MIT"
 edition = "2024"
 rust-version = "1.85"
 exclude = ["/examples", "/webview-dist", "/webview-src", "/node_modules"]
 links = "tauri-plugin-machine-uid"
+repository = "https://github.com/SkipperNDT/tauri-plugin-machine-uid"
+homepage = "https://github.com/SkipperNDT/tauri-plugin-machine-uid"
+documentation = "https://docs.rs/tauri-plugin-machine-uid"
+readme = "README.md"
 
 [dependencies]
 tauri = { version = "2" }
