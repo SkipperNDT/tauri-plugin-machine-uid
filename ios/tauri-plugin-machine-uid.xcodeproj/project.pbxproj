@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A0E2115A2BF552D2003BCF4D /* ExamplePlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E211592BF552D2003BCF4D /* ExamplePlugin.swift */; };
+		A0E2115A2BF552D2003BCF4D /* MachineUidPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0E211592BF552D2003BCF4D /* MachineUidPlugin.swift */; };
 		A0E211622BF55305003BCF4D /* Tauri in Frameworks */ = {isa = PBXBuildFile; productRef = A0E211612BF55305003BCF4D /* Tauri */; };
 /* End PBXBuildFile section */
 
@@ -25,7 +25,7 @@
 
 /* Begin PBXFileReference section */
 		A0E211562BF552D2003BCF4D /* libtauri-plugin-machine-uid.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libtauri-plugin-machine-uid.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		A0E211592BF552D2003BCF4D /* ExamplePlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExamplePlugin.swift; sourceTree = "<group>"; };
+		A0E211592BF552D2003BCF4D /* MachineUidPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MachineUidPlugin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,7 +59,7 @@
 		A0E211582BF552D2003BCF4D /* tauri-plugin-machine-uid */ = {
 			isa = PBXGroup;
 			children = (
-				A0E211592BF552D2003BCF4D /* ExamplePlugin.swift */,
+				A0E211592BF552D2003BCF4D /* MachineUidPlugin.swift */,
 			);
 			path = "tauri-plugin-machine-uid";
 			sourceTree = "<group>";
@@ -128,7 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A0E2115A2BF552D2003BCF4D /* ExamplePlugin.swift in Sources */,
+				A0E2115A2BF552D2003BCF4D /* MachineUidPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
