@@ -1,4 +1,4 @@
-const COMMANDS: &[&str] = &["get_machine_id"];
+const COMMANDS: &[&str] = &["get_machine_uid"];
 
 fn main() {
     tauri_plugin::Builder::new(COMMANDS)

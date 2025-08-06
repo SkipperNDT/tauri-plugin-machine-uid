@@ -295,19 +295,22 @@
       "type": "string",
       "oneOf": [
         {
-          "description": "Enables the get_machine_id command without any pre-configured scope.",
+          "description": "Enables the get_machine_uid command without any pre-configured scope.",
           "type": "string",
-          "const": "allow-get-machine-id"
+          "const": "allow-get-machine-uid",
+          "markdownDescription": "Enables the get_machine_uid command without any pre-configured scope."
         },
         {
-          "description": "Denies the get_machine_id command without any pre-configured scope.",
+          "description": "Denies the get_machine_uid command without any pre-configured scope.",
           "type": "string",
-          "const": "deny-get-machine-id"
+          "const": "deny-get-machine-uid",
+          "markdownDescription": "Denies the get_machine_uid command without any pre-configured scope."
         },
         {
-          "description": "Default permissions for the plugin",
+          "description": "Default permissions for the plugin\n#### This default permission set includes:\n\n- `allow-get-machine-uid`",
           "type": "string",
-          "const": "default"
+          "const": "default",
+          "markdownDescription": "Default permissions for the plugin\n#### This default permission set includes:\n\n- `allow-get-machine-uid`"
         }
       ]
     }
