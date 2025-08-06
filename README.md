@@ -10,7 +10,7 @@ Add the following to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-tauri-plugin-machine-uid = "0.1.1"
+tauri-plugin-machine-uid = "0.1.2"
 ```
 
 Add the following typescript bindings if you want:

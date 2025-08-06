@@ -1,6 +1,6 @@
 [package]
 name = "tauri-plugin-machine-uid"
-version = "0.1.1"
+version = "0.1.2"
 authors = ["Florian Stasse <f.stasse@skipperndt.com>"]
 description = "A Tauri plugin for retrieving machine UID"
 license = "MIT"
