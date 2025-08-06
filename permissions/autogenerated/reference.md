@@ -2,7 +2,9 @@
 
 Default permissions for the plugin
 
-- `allow-get-machine-id`
+#### This default permission set includes the following:
+
+- `allow-get-machine-uid`
 
 ## Permission Table
 
@@ -16,12 +18,12 @@ Default permissions for the plugin
 <tr>
 <td>
 
-`machine-uid:allow-get-machine-id`
+`machine-uid:allow-get-machine-uid`
 
 </td>
 <td>
 
-Enables the get_machine_id command without any pre-configured scope.
+Enables the get_machine_uid command without any pre-configured scope.
 
 </td>
 </tr>
@@ -29,12 +31,12 @@ Enables the get_machine_id command without any pre-configured scope.
 <tr>
 <td>
 
-`machine-uid:deny-get-machine-id`
+`machine-uid:deny-get-machine-uid`
 
 </td>
 <td>
 
-Denies the get_machine_id command without any pre-configured scope.
+Denies the get_machine_uid command without any pre-configured scope.
 
 </td>
 </tr>

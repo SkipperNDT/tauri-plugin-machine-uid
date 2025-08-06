@@ -1,0 +1,13 @@
+# Automatically generated - DO NOT EDIT!
+
+"$schema" = "../../schemas/schema.json"
+
+[[permission]]
+identifier = "allow-get-machine-uid"
+description = "Enables the get_machine_uid command without any pre-configured scope."
+commands.allow = ["get_machine_uid"]
+
+[[permission]]
+identifier = "deny-get-machine-uid"
+description = "Denies the get_machine_uid command without any pre-configured scope."
+commands.deny = ["get_machine_uid"]
